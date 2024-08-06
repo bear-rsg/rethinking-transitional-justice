@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block main %}
+
+    <div class="container">
+        <h2>Upload New Sound</h2>
+        <form id="sound-create-form" enctype="multipart/form-data" name="form" method="POST" action="{% url 'researchdata:sound-create' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-submit-notes">
+                Form notes here
+            </div>
+            <button id="sound-create-submit" type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+           
+
+
+        });
+    </script>
+
+{% endblock %}

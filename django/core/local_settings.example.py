@@ -13,11 +13,18 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Online tools can help generate this for you, e.g. https://www.miniwebtool.com/django-secret-key-generator/
 SECRET_KEY = ''
 
+# Create Google RECAPTCHA public and private keys: https://www.google.com/recaptcha/
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
+
+# Code needed to complete the sound upload form
+SOUND_UPLOAD_CODE = ''
+
 # Set to True if in development, or False is in production
 DEBUG = True/False
 
 # Set to ['*'] if in development, or specific IP addresses and domains if in production
-ALLOWED_HOSTS = ['*']/['django-template.bham.ac.uk']
+ALLOWED_HOSTS = ['*']/['rethinking-transitional-justice.bham.ac.uk']
 
 # Provide the email address for the site admin (e.g. the researcher/research team)
 ADMIN_EMAIL = '...@bham.ac.uk'
@@ -26,9 +33,9 @@ ADMIN_EMAIL = '...@bham.ac.uk'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'django-template.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'rethinking-transitional-justice.sqlite3'),
         'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'django-template_TEST.sqlite3'),
+            'NAME': os.path.join(BASE_DIR, 'rethinking-transitional-justice_TEST.sqlite3'),
         },
     }
 }
