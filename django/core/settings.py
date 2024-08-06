@@ -18,8 +18,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     # Custom apps
+    # captchanotimeout is a custom app to override "captcha" to prevent 2 minute timeouts
+    # See: https://github.com/praekelt/django-recaptcha/issues/183
+    'captchanotimeout',
+    'django_recaptcha',
     'account',
     'general',
+    'researchdata',
 ]
 
 MIDDLEWARE = [
@@ -161,7 +166,7 @@ LOGGING = {
     'handlers': {
         'stream': {
             'class': 'logging.StreamHandler',
-            'level': 'DEBUG' if DEBUG else 'INFO',  # NOQA
+            'level': 'INFO',
             'formatter': 'verbose',
         },
         'file': {
@@ -181,7 +186,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['stream', 'file', 'mail_admins'],
-            'level': 'DEBUG' if DEBUG else 'INFO',  # NOQA
+            'level': 'INFO',
             'propagate': 'True',
         },
     },
