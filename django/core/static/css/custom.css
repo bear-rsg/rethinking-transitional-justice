@@ -1,0 +1,317 @@
+
+/* ---------- General ---------- */
+
+html, body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-weight: 300;
+    background: var(--color-primary);
+    color: white;
+
+    /* Variables */
+    --color-primary: #0066CC;
+    --color-secondary: #FFCC00;
+}
+
+a {
+    color: #FFF;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #FFF;
+}
+
+h1 {
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
+    line-height: 1em;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+h2 {
+    padding-top: 2em;
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-align: center;
+    font-size: 2em;
+    margin: 1.5em 0 1em 0;
+}
+
+h3 {
+    padding: 2em 0 0.5em 0;
+    color: var(--color-secondary);
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.iframe-large {
+    display: block;
+    margin: 0 auto;
+    overflow: scroll;
+    width: 100%;
+    height: calc(90vh - 7em);
+    border: none;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 0;
+    height: 0;
+    margin: 7em auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---------- Forms ---------- */
+
+label {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 2em;
+    font-size: 0.95em;
+}
+
+label.label-active {
+    color: #FFF;
+}
+
+.helptext,
+.form-submit-notes {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.helptext a,
+.form-submit-notes a {
+    text-decoration: underline;
+}
+
+.errorlist {
+    color: red;
+}
+
+input,
+textarea,
+select,
+button[type='submit'] {
+    width: 100%;
+    display: block;
+    padding: 0.3em;
+}
+
+#sound-create-form input,
+#sound-create-form textarea,
+#sound-create-form select {
+    background: #EEE;
+    border: none;
+}
+
+#sound-create-form input[type='file'] {
+    border: 1px solid white;
+    background: none;
+}
+
+input[type='checkbox'] {
+    display: inline;
+    width: auto;
+}
+
+form ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+form ul li {
+    display: inline-block;
+}
+
+form ul li label {
+    margin: 0.3em 2em 0 0;
+    cursor: pointer;
+}
+
+form ul li label:hover {
+    color: #FFF;
+}
+
+button[type='submit'],
+button[type='submit']:visited {
+    background: #FFF;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 3em 0 1em 0;
+}
+
+button[type='submit']:hover {
+    background: #FFF;
+    color: white;
+}
+
+/* ---------- Navigation ---------- */
+
+nav {
+    background-color: var(--color-primary);
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.navbar-brand {
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 1.6em;
+    color: #FFF;
+}
+
+.navbar-nav {
+    letter-spacing: 0.15em;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 1.1em;
+    color: #FFF;
+}
+
+.nav-link.active {
+    border-bottom: 0.3em solid var(--color-secondary);
+}
+
+nav a:hover,
+.dropdown-item:hover {
+    color: #FFF;
+}
+
+/* ---------- Main ---------- */
+
+main {
+    padding-bottom: 4em;
+}
+
+main p,
+main ul,
+main ol {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+}
+
+main a {
+    text-decoration: none;
+}
+
+/* ---------- Welcome ---------- */
+
+#welcome-banner {
+    background: url('../images/welcome-bg.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-color: white;
+    height: calc(100vh - 3em);
+}
+
+#welcome-banner-title {
+    background: var(--color-primary);
+    width: fit-content;
+    text-align: center;
+    font-weight: 600;
+}
+
+#welcome-banner-title-primary {
+    
+    color: var(--color-secondary);
+}
+
+#welcome-banner-title-secondary {
+    font-size: 0.695em;
+}
+
+#welcome-banner-proceed {
+    font-size: 3em;
+    position: absolute;
+    bottom: 0.8em;
+    left: calc(50% - 40px);
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    padding-top: 0.1em;
+    cursor: pointer;
+    line-height: 80px;
+}
+
+/* ---------- About ---------- */
+
+.about-image {
+    display: block;
+    margin: 3em auto 0 3em;
+    width: 90%;
+}
+
+.about-image-credit {
+    margin: 0.5em 0 3em 0;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* ---------- Team ---------- */
+
+.team-member {
+    margin: 4em 0;
+}
+
+.team-member img {
+    height: 15em;
+    border: 0.5em solid var(--color-secondary);
+    display: block;
+    border-radius: 100%;
+    margin: 2em auto;
+}
+
+/* ---------- Sound  ---------- */
+
+#sound-create-submit {
+    background: #FFF;
+    color: var(--color-primary);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 5em 0;
+    text-align: center;
+}
+
+#footer-content-text {
+    margin-top: 2em;
+}
+
+footer a:hover {
+    color: #FFF;
+}
+
+/* ---------- Error Pages ---------- */
+
+.errorpage-path {
+    font-weight: bold;
+}
+
+.errorpage-code {
+    margin-top: 3em;
+    font-size: 0.8em;
+}
