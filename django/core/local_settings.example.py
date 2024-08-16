@@ -17,9 +17,6 @@ SECRET_KEY = ''
 RECAPTCHA_PUBLIC_KEY = ''
 RECAPTCHA_PRIVATE_KEY = ''
 
-# Code needed to complete the sound upload form
-SOUND_UPLOAD_CODE = ''
-
 # Set to True if in development, or False is in production
 DEBUG = True/False
 
