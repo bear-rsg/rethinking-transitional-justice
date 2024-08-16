@@ -255,15 +255,15 @@ main a {
     line-height: 80px;
 }
 
-/* ---------- About ---------- */
+/* ---------- Photographs ---------- */
 
-.about-image {
+.photograph {
     display: block;
-    margin: 3em auto 0 3em;
+    margin: 3em auto 0 auto;
     width: 90%;
 }
 
-.about-image-credit {
+.photograph-credit {
     margin: 0.5em 0 3em 0;
     text-align: center;
     opacity: 0.8;

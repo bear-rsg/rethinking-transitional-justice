@@ -5,24 +5,15 @@
 {% block main %}
 
     <div class="container">
-        <h2>Upload New Sound</h2>
+        <h2>Upload New Sound / Завантаження звукозапису</h2>
         <form id="sound-create-form" enctype="multipart/form-data" name="form" method="POST" action="{% url 'researchdata:sound-create' %}">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="form-submit-notes">
-                Form notes to go here...
+                By submitting this form I understand that I am providing data for the Rethinking Transitional Justice research project, and that this data will be used for research purposes at the University of Birmingham.
             </div>
-            <button id="sound-create-submit" type="submit">Upload</button>
+            <button id="sound-create-submit" type="submit">Upload / Завантажити</button>
         </form>
     </div>
-
-    <script>
-        $(document).ready(function() {
-
-           
-
-
-        });
-    </script>
 
 {% endblock %}
