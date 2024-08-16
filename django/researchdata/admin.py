@@ -6,7 +6,7 @@ admin.site.site_header = 'Rethinking Transitional Justice: Admin Dashboard'
 
 
 @admin.register(models.SoundUploadCode)
-class SoundAdminView(admin.ModelAdmin):
+class SoundUploadCodeAdminView(admin.ModelAdmin):
     list_display = ('id', 'code', 'assigned_to', 'sounds_count')
     search_fields = ('code', 'assigned_to')
     ordering = ('-id',)
