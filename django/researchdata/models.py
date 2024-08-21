@@ -44,7 +44,7 @@ class Sound(models.Model):
         blank=True,
         null=True,
         verbose_name="date of recording / Дата запису",
-        help_text="Please provide the date that the sound recording was produced"
+        help_text="Please provide the date that the sound recording was produced<br>Будь ласка, вкажіть дату створення звукозапису."
     )
     recording_time = models.TimeField(
         blank=True,
