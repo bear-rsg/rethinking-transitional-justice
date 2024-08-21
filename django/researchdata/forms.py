@@ -52,6 +52,6 @@ class SoundCreateForm(forms.ModelForm):
         if sound_upload_code_fk is None:
             self.add_error(
                 'sound_upload_code',
-                "The sound upload code is not valid. Please contact us for help if needed."
+                "The sound upload code is not valid. Please contact us for help if needed / Код завантаження звуку недійсний. Будь ласка, зв'яжіться з нами, якщо Вам необхідна допомога"
             )
         return sound_upload_code_fk
