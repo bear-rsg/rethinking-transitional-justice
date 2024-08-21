@@ -62,5 +62,10 @@ class Sound(models.Model):
     admin_notes = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def author(self):
+        if self.sound_upload_code and self.sound_upload_code.assigned_to:
+            return self.sound_upload_code.assigned_to
+
     def __str__(self):
         return f"Sound #{self.id}: created {self.created}"
