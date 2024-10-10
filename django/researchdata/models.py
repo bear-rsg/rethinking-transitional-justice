@@ -70,7 +70,7 @@ class Sound(models.Model):
 
     def __str__(self):
         return f"Sound #{self.id}: created {self.created}"
-    
+
     def save(self, *args, **kwargs):
         # Prevent users from submitting duplicate sounds by
         # ignoring saves of matching records within the last 10 seconds
