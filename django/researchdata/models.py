@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import timedelta, datetime
 import logging
 
 logger = logging.getLogger(__name__)
@@ -69,3 +70,15 @@ class Sound(models.Model):
 
     def __str__(self):
         return f"Sound #{self.id}: created {self.created}"
+    
+    def save(self, *args, **kwargs):
+        # Prevent users from submitting duplicate sounds by
+        # ignoring saves of matching records within the last 10 seconds
+        ten_seconds_ago = datetime.now() - timedelta(seconds=10)
+        if not Sound.objects.filter(
+            sound_upload_code=self.sound_upload_code,
+            location=self.location,
+            description=self.description,
+            created__gte=ten_seconds_ago
+        ):
+            super().save(*args, **kwargs)
