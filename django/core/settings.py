@@ -17,11 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    # Custom apps
-    # captchanotimeout is a custom app to override "captcha" to prevent 2 minute timeouts
+    # 3rd party apps
+    # captchanotimeout is an app to override "captcha" to prevent 2 minute timeouts
     # See: https://github.com/praekelt/django-recaptcha/issues/183
     'captchanotimeout',
     'django_recaptcha',
+    # Custom apps
     'account',
     'general',
     'researchdata',
