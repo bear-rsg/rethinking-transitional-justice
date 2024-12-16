@@ -59,8 +59,23 @@
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
+            {% empty %}
+                <div id="sound-list-items-empty">
+                    No sounds found. Please adjust your search criteria or check back soon!
+                </div>
             {% endfor %}
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            // Set input field values using data in the URL
+            function setFieldValueFromUrl(formItemID, urlParameter, triggerChange=false){
+                var value = new URL(window.location.href).searchParams.get(urlParameter);
+                if (value) $('#' + formItemID).val(value);
+            }
+            setFieldValueFromUrl('sound-list-search-input', 'search');
+        });
+    </script>
 
 {% endblock %}
