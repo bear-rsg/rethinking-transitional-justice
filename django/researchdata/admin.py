@@ -41,20 +41,6 @@ class SoundscapeExhibitionCommentInline(admin.TabularInline):
     extra = 0
 
 
-class SoundsRelationship1Inline(admin.TabularInline):
-    model = models.Sound.related_sounds.through
-    fk_name = "sound_2"
-    autocomplete_fields = ('sound_1',)
-    extra = 0
-
-
-class SoundsRelationship2Inline(admin.TabularInline):
-    model = models.Sound.related_sounds.through
-    fk_name = "sound_1"
-    autocomplete_fields = ('sound_2',)
-    extra = 0
-
-
 # AdminViews
 
 
@@ -72,11 +58,7 @@ class SoundAdminView(admin.ModelAdmin):
     ordering = ('-created',)
     readonly_fields = ('created', 'sound_upload_code')
     actions = (approve, unapprove)
-    inlines = (
-        SoundsRelationship1Inline,
-        SoundsRelationship2Inline,
-        SoundscapeExhibitionCommentInline
-    )
+    inlines = (SoundscapeExhibitionCommentInline,)
 
 
 @admin.register(models.SoundsRelationship)

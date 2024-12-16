@@ -77,6 +77,14 @@
                             About
                         </a>
                     </li>
+                    {% if user.is_superuser %}
+                        <!-- Soundscape Exhibition -->
+                        <li class="nav-item">
+                            <a class="nav-link{% if '/sounds/exhibition/' in request.path %} active{% endif %}" href="{% url 'researchdata:sound-list' %}">
+                                Soundscape Exhibition
+                            </a>
+                        </li>
+                    {% endif %}
                     <!-- Team -->
                     <li class="nav-item">
                         <a class="nav-link{% if '/team/' in request.path %} active{% endif %}" href="{% url 'general:team' %}">

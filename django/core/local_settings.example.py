@@ -36,3 +36,19 @@ DATABASES = {
         },
     }
 }
+
+
+# Email settings
+if DEBUG is True:
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
+    DEFAULT_FROM_EMAIL = 'anemailaddress@bham.ac.uk'
+    NOTIFICATION_EMAIL = ('anemailaddress@bham.ac.uk',)
+else:
+    EMAIL_USE_TLS = False
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'hostnamehere'
+    EMAIL_PORT = 25
+    EMAIL_HOST_USER = 'anemailaddress@bham.ac.uk'
+    DEFAULT_FROM_EMAIL = 'anemailaddress@bham.ac.uk'
+    NOTIFICATION_EMAIL = 'anemailaddress@bham.ac.uk'
