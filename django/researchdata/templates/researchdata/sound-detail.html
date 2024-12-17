@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-{% load i18n %}
 
-{% block main %}
+{% block body %}
 
     {% include 'researchdata/language.html' %}
 
     <div id="sound-detail" class="container">
+        <!-- Back link -->
+        <a href="{% url 'researchdata:sound-list' %}" class="sound-backlink">
+            &lt;
+            <span class="lang-eng">View all Sounds</span>
+            <span class="lang-ukr">View all Sounds (Ukraine)</span>
+        </a>
         <!-- Title -->
         <h2>
             <span class="lang-eng">{{ object.title_soundscape_exhibition | safe }}</span>
@@ -70,7 +75,7 @@
                             <p class="lang-eng">{{ related_sound.relationship_details }}</p>
                             <p class="lang-ukr">{{ related_sound.relationship_details_ukrainian }}</p>
                         </div>
-                        <a href="{% url 'researchdata:sound-detail' related_sound.related_sound.id %}">
+                        <a href="{% url 'researchdata:sound-detail' related_sound.related_sound.id %}" class="sound-primarylink">
                             <span class="lang-eng">View this sound</span>
                             <span class="lang-ukr">View this sound (Ukraine)</span>
                             <i class="fas fa-play"></i>

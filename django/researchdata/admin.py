@@ -53,7 +53,7 @@ class SoundUploadCodeAdminView(admin.ModelAdmin):
 
 @admin.register(models.Sound)
 class SoundAdminView(admin.ModelAdmin):
-    list_display = ('id', 'sound', 'location', 'description_preview', 'sound_upload_code', 'author', 'created', 'admin_approved')
+    list_display = ('id', 'sound', 'location', 'order_in_soundscape_exhibition', 'description_preview', 'sound_upload_code', 'author', 'created', 'admin_approved')
     search_fields = ('description', 'location', 'sound', 'admin_notes', 'sound_upload_code__code', 'sound_upload_code__assigned_to')
     ordering = ('-created',)
     readonly_fields = ('created', 'sound_upload_code')

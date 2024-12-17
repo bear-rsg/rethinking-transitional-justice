@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+    {% include 'researchdata/language.html' %}
+
+    <div id="sound-welcome" class="container">
+        <h2>
+            <span class="lang-eng">Soundscape Exhibition</span>
+            <span class="lang-ukr">Soundscape Exhibition (Ukraine)</span>
+        </h2>
+
+        <div id="sound-welcome-content">
+            <p class="lang-eng">
+                Content coming soon...
+            </p>
+            <p class="lang-ukr">
+                Content coming soon (Ukraine) ...
+            </p>
+        </div>
+
+        <a href="{% url 'researchdata:sound-list' %}" class="sound-primarylink">
+            <span class="lang-eng">View Sounds</span>
+            <span class="lang-ukr">View Sounds (Ukraine)</span>
+            <i class="fas fa-play"></i>
+        </a>
+    </div>
+
+{% endblock %}

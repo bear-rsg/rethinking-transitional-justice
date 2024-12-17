@@ -120,8 +120,8 @@ class Sound(models.Model):
     @property
     def title_soundscape_exhibition_ukrainian(self):
         title = ''
-        if self.location_soundscape_exhibition:
-            title += self.location_soundscape_exhibition
+        if self.location_soundscape_exhibition_ukrainian:
+            title += self.location_soundscape_exhibition_ukrainian
         elif self.location:
             title += self.location
         if self.recording_date:

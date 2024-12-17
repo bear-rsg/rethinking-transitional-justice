@@ -21,6 +21,13 @@ class SoundCreateSuccessTemplateView(TemplateView):
     template_name = 'researchdata/sound-create-success.html'
 
 
+class SoundWelcomeTemplateView(TemplateView):
+    """
+    Class-based view to show the sound welcome template
+    """
+    template_name = 'researchdata/sound-welcome.html'
+
+
 class SoundListView(LoginRequiredMixin, ListView):
     """
     Class-based view to show the Sound list template

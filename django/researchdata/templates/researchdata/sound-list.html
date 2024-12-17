@@ -1,26 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
-{% load i18n %}
 
-{% block main %}
+{% block body %}
 
     {% include 'researchdata/language.html' %}
 
     <div id="sound-list" class="container">
+        <!-- Back link -->
+        <a href="{% url 'researchdata:sound-welcome' %}" class="sound-backlink">
+            &lt;
+            <span class="lang-eng">View Soundscape Introduction</span>
+            <span class="lang-ukr">View Soundscape Introduction (Ukraine)</span>
+        </a>
         <!-- Title -->
         <h2>
             <span class="lang-eng">Soundscape Exhibition</span>
             <span class="lang-ukr">Soundscape Exhibition (Ukraine)</span>
         </h2>
-        <!-- Introduction -->
-        <div id="sound-list-introduction">
-            <p class="lang-eng">
-                Introduction message english...
-            </p>
-            <p class="lang-ukr">
-                Introduction message ukraine...
-            </p>
-        </div>
         <!-- Search bar -->
         <form method="GET" id="sound-list-search">
             <div class="list-options-search">
@@ -53,7 +49,7 @@
                             <span class="lang-ukr">{{ object.description_ukrainian_preview }}</span>
                         {% endif %}
                     </div>
-                    <a href="{% url 'researchdata:sound-detail' object.id %}">
+                    <a href="{% url 'researchdata:sound-detail' object.id %}" class="sound-primarylink">
                         <span class="lang-eng">View Sound</span>
                         <span class="lang-ukr">View Sound (Ukraine)</span>
                         <i class="fas fa-play"></i>

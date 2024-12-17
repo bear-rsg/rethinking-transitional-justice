@@ -307,7 +307,7 @@ main a {
 #lang {
     display: block;
     position: fixed;
-    top: 4rem;
+    top: 2rem;
     left: 2rem;
     background: rgba(255, 255, 255, 0.13);
     font-size: 2em;
@@ -318,6 +318,35 @@ main a {
 #lang span {
     padding: 0.1em 0.2em;
     cursor: pointer;
+}
+
+/* ---------- Sound: Links  ---------- */
+
+.sound-backlink {
+    margin-top: 1em;
+    display: block;
+    width: fit-content;
+}
+
+.sound-primarylink {
+    font-weight: bold;
+    display: block;
+    margin: 2em auto 0 auto;
+    width: fit-content;
+    background: white;
+    color: var(--color-primary);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    font-size: 1.1em;
+}
+
+.sound-primarylink:hover {
+    text-decoration: none;
+    background: var(--color-secondary);
+}
+
+.sound-primarylink i {
+    margin-left: 0.5em;
 }
 
 /* ---------- Sound: List  ---------- */
@@ -383,30 +412,6 @@ main a {
 .sound-list-items-item-details {
     font-size: 1.1em;
     margin: 0.5em auto;
-}
-
-.sound-list-items-item a,
-.sound-detail-relatedsounds-item a {
-    font-weight: bold;
-    display: block;
-    margin: 2em auto 0 auto;
-    width: fit-content;
-    background: white;
-    color: var(--color-primary);
-    padding: 0.5em 1em;
-    border-radius: 0.3em;
-    font-size: 1.1em;
-}
-
-.sound-list-items-item a:hover,
-.sound-detail-relatedsounds-item a:hover {
-    text-decoration: none;
-    background: var(--color-secondary);
-}
-
-.sound-list-items-item a i,
-.sound-detail-relatedsounds-item a i {
-    margin-left: 0.5em;
 }
 
 /* ---------- Sound: Detail  ---------- */

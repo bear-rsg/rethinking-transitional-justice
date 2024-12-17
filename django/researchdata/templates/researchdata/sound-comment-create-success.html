@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block main %}
+{% block body %}
+
+    {% include 'researchdata/language.html' %}
 
     <div class="container">
-        <h2>Thanks! / Дякуємо!</h2>
-        <p>
+        <h2>
+            <span class="lang-eng">Thanks!</span>
+            <span class="lang-ukr">Дякуємо!</span>
+        </h2>
+        <p class="lang-eng">
             Your comment has been sent to us successfully. Once it's been reviewed and approved by the project team, it will appear on the public website.
         </p>
+        <p class="lang-ukr">
+            Your comment has been sent to us successfully. Once it's been reviewed and approved by the project team, it will appear on the public website. (Ukraine)
+        </p>
+        <a href="{% url 'researchdata:sound-list' %}" class="sound-primarylink">
+            <span class="lang-eng">View Sounds</span>
+            <span class="lang-ukr">View Sounds (Ukraine)</span>
+            <i class="fas fa-play"></i>
+        </a>
     </div>
 
 {% endblock %}

@@ -5,10 +5,14 @@ app_name = apps.app_name
 
 urlpatterns = [
     path('sounds/exhibition/',
+         views.SoundWelcomeTemplateView.as_view(),
+         name='sound-welcome'),
+
+    path('sounds/exhibition/sounds/',
          views.SoundListView.as_view(),
          name='sound-list'),
 
-    path('sounds/exhibition/<pk>/',
+    path('sounds/exhibition/sounds/<pk>/',
          views.SoundDetailView.as_view(),
          name='sound-detail'),
 
