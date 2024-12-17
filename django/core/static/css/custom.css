@@ -349,6 +349,15 @@ main a {
     margin-left: 0.5em;
 }
 
+/* ---------- Sound: Welcome  ---------- */
+
+.sound-welcome-image {
+    width: 27em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto 0 auto;
+}
+
 /* ---------- Sound: List  ---------- */
 
 #sound-list-introduction {
