@@ -1,0 +1,33 @@
+<div id="lang">
+    <span data-lang="eng">🇬🇧</span>
+    <span data-lang="ukr">🇺🇦</span>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    // User clicks language option
+    $('span[data-lang]').on('click', function(){
+        let lang = $(this).attr('data-lang');
+        // Hide all languages
+        $('.lang-eng, .lang-ukr').hide()
+        // Show selected language
+        $(`.lang-${lang}`).show();
+        // Set lang as cookie
+        document.cookie = `lang=${lang}; expires=Mon, 31 Dec 2070 23:59:59 GMT; path=/; Secure;`;
+    });
+
+    // Function to return the value of a cookie
+    function getCookie(name){
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // Set default language from cookie (if cookie not found, set as English)
+    let defaultLang = getCookie('lang');
+    if (typeof defaultLang === "undefined") defaultLang = 'eng';
+    $(`span[data-lang="${defaultLang}"]`).trigger('click');
+
+});
+</script>

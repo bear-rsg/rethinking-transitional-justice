@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+    {% include 'researchdata/language.html' %}
+
+    <div id="sound-detail" class="container">
+        <!-- Back link -->
+        <a href="{% url 'researchdata:sound-list' %}" class="sound-backlink">
+            &lt;
+            <span class="lang-eng">View all Sounds</span>
+            <span class="lang-ukr">View all Sounds (Ukraine)</span>
+        </a>
+        <!-- Title -->
+        <h2>
+            <span class="lang-eng">{{ object.title_soundscape_exhibition | safe }}</span>
+            <span class="lang-ukr">{{ object.title_soundscape_exhibition_ukrainian | safe }}</span>
+        </h2>
+        <!-- Audio -->
+        <div id="sound-detail-audio">
+            <h3>
+                <span class="lang-eng">Listen to the Sound</span>
+                <span class="lang-ukr">Listen to the Sound (Ukraine)</span>
+            </h3>
+            <audio controls>
+                <source src="{{ object.sound.url }}">
+            </audio>
+        </div>
+        <!-- Photo -->
+        {% if object.photo %}
+            <h3>
+                <span class="lang-eng">Photograph to Illustrate the Sound</span>
+                <span class="lang-ukr">Photograph to Illustrate the Sound (Ukraine)</span>
+            </h3>
+            <a href="{{ object.photo.url }}" id="sound-detail-photo-container" target="_blank">
+                <img id="sound-detail-photo" src="{{ object.photo.url }}" alt="photograph of location of sound">
+            </a>
+        {% endif %}
+        <!-- Description -->
+        {% if object.description %}
+            <div id="sound-detail-description">
+                <h3>
+                    <span class="lang-eng">Original Description of this Sound by its Author</span>
+                    <span class="lang-ukr">Original Description of this Sound by its Author (Ukraine)</span>
+                </h3>
+                <p class="lang-eng">{{ object.description }}</p>
+                <p class="lang-ukr">{{ object.description_ukrainian }}</p>
+            </div>
+        {% endif %}
+        <!-- Interview Reflection -->
+        {% if object.interviewee_reflection %}
+            <div id="sound-detail-reflection">
+                <h3>
+                    <span class="lang-eng">Interviewee's Reflection of the Sound</span>
+                    <span class="lang-ukr">Interviewee's Reflection of the Sound (Ukraine)</span>
+                </h3>
+                <p class="lang-eng">{{ object.interviewee_reflection }}</p>
+                <p class="lang-ukr">{{ object.interviewee_reflection_ukrainian }}</p>
+            </div>
+        {% endif %}
+        <!-- Related Sounds -->
+        {% if object.related_sounds_list %}
+            <div id="sound-detail-relatedsounds">
+                <h3>
+                    <span class="lang-eng">Related Sounds</span>
+                    <span class="lang-ukr">Related Sounds (Ukraine)</span>
+                </h3>
+                {% for related_sound in object.related_sounds_list %}
+                    <div class="sound-detail-relatedsounds-item">
+                        <h4>
+                            {{ related_sound.related_sound.title_soundscape_exhibition | safe }}
+                        </h4>
+                        <div>
+                            <p class="lang-eng">{{ related_sound.relationship_details }}</p>
+                            <p class="lang-ukr">{{ related_sound.relationship_details_ukrainian }}</p>
+                        </div>
+                        <a href="{% url 'researchdata:sound-detail' related_sound.related_sound.id %}" class="sound-primarylink">
+                            <span class="lang-eng">View this sound</span>
+                            <span class="lang-ukr">View this sound (Ukraine)</span>
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <!-- Comments -->
+        <div id="sound-detail-comments">
+            <h3>
+                <span class="lang-eng">Comments</span>
+                <span class="lang-ukr">Comments (Ukraine)</span>
+            </h3>
+            <div id="sound-detail-comments-prompt">
+                {% if object.prompt_for_public_comments %}
+                    <span class="lang-eng">{{ object.prompt_for_public_comments }}</span>
+                    <span class="lang-ukr">{{ object.prompt_for_public_comments_ukrainian }}</span>
+                {% else %}
+                    <span class="lang-eng">Please share with us your thoughts about this Sound</span>
+                    <span class="lang-ukr">Please share with us your thoughts about this Sound (Ukrainian)</span>
+                {% endif %}
+            </div>
+            <div id="sound-detail-comments-new">
+                <form action="{% url 'researchdata:sound-comment-create' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="sound" value="{{ object.id }}">
+                    <p>
+                        <textarea id="id_comment" title="comment" name="comment"></textarea>
+                    </p>
+                    <div id="sound-detail-comments-new-disclaimer">
+                        <div class="lang-eng">
+                            By submitting this information, you're agreeing for it to be displayed publicly on this website.
+                            <br>
+                            All submissions are anonymous and must be approved before appearing on the website.
+                        </div>
+                        <div class="lang-ukr">
+                            Disclaimer (Ukrainian)
+                        </div>
+                    </div>
+                    <button type="submit">
+                        <span class="lang-eng">Send</span>
+                        <span class="lang-ukr">Send (Ukraine)</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            <div id="sound-detail-comments-existing">
+                {% for comment in object.comments_approved %}
+                    <div class="sound-detail-comments-existing-comment">
+                        <div class="sound-detail-comments-existing-comment-created">
+                            {{ comment.created }}
+                        </div>
+                        <div class="sound-detail-comments-existing-comment-text">
+                            {{ comment.comment | linebreaks }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

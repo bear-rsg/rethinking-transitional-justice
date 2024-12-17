@@ -53,74 +53,85 @@
     </head>
 
     <body>
-
-        <!-- Navigation bar -->
-        <nav class="navbar fixed-top navbar-expand-lg">
-            <!-- Logo -->
-            <a class="navbar-brand" href="{% url 'general:welcome' %}"><h1>Rethinking Transitional Justice</h1></a>
-            <!-- Nav toggle button (for small screens) -->
-            <button class="navbar-toggler" type="button" title="navbartoggle" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-            <!-- Nav list -->
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <!-- Welcome -->
-                    <li class="nav-item">
-                        <a class="nav-link{% if request.path == '/' or request.path == '/ld/' %} active{% endif %}" href="{% url 'general:welcome' %}">
-                            Welcome
-                        </a>
-                    </li>
-                    <!-- About -->
-                    <li class="nav-item">
-                        <a class="nav-link{% if '/about/' in request.path %} active{% endif %}" href="{% url 'general:about' %}">
-                            About
-                        </a>
-                    </li>
-                    <!-- Team -->
-                    <li class="nav-item">
-                        <a class="nav-link{% if '/team/' in request.path %} active{% endif %}" href="{% url 'general:team' %}">
-                            Team
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main -->
-        <main id="main">
-            <div id="main-content">
-                {% block main %}
-                {% endblock %}
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="container-fluid">
-            <!-- Content -->
-            <div id="footer-content" class="container">
-                <div id="footer-content-logos">
-                    <!-- University of Birmingham -->
-                    <a href="https://www.birmingham.ac.uk/" target="_blank"><img src="{% static 'images/logos/uob.png' %}" alt="University of Birmingham"></a>
+        {% block body %}
+            
+            <!-- Navigation bar -->
+            <nav class="navbar fixed-top navbar-expand-lg">
+                <!-- Logo -->
+                <a class="navbar-brand" href="{% url 'general:welcome' %}"><h1>Rethinking Transitional Justice</h1></a>
+                <!-- Nav toggle button (for small screens) -->
+                <button class="navbar-toggler" type="button" title="navbartoggle" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <!-- Nav list -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Welcome -->
+                        <li class="nav-item">
+                            <a class="nav-link{% if request.path == '/' or request.path == '/ld/' %} active{% endif %}" href="{% url 'general:welcome' %}">
+                                Welcome
+                            </a>
+                        </li>
+                        <!-- About -->
+                        <li class="nav-item">
+                            <a class="nav-link{% if '/about/' in request.path %} active{% endif %}" href="{% url 'general:about' %}">
+                                About
+                            </a>
+                        </li>
+                        {% if user.is_superuser %}
+                            <!-- Soundscape Exhibition -->
+                            <li class="nav-item">
+                                <a class="nav-link{% if '/sounds/exhibition/' in request.path %} active{% endif %}" href="{% url 'researchdata:sound-welcome' %}">
+                                    Soundscape Exhibition
+                                </a>
+                            </li>
+                        {% endif %}
+                        <!-- Team -->
+                        <li class="nav-item">
+                            <a class="nav-link{% if '/team/' in request.path %} active{% endif %}" href="{% url 'general:team' %}">
+                                Team
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <p>
-                    <strong>Rethinking Transitional Justice</strong> is a research project led by <a href="https://www.birmingham.ac.uk/staff/profiles/law/clark-janine-natalya">Professor Janine Natalya Clark</a> at the <a href="http://www.birmingham.ac.uk">University of Birmingham</a>
-                </p>
-                <p>
-                    This website has been developed by the <a href="http://www.birmingham.ac.uk/bear-software">Research Software Group</a> for the <a href="https://www.birmingham.ac.uk/university/colleges/artslaw/index.aspx">College of Arts and Law</a>
-                </p>
-                <p>
-                    <a href="https://www.birmingham.ac.uk/privacy/index.aspx" target="_blank">Privacy</a> |
-                    <a href="https://www.birmingham.ac.uk/legal/index.aspx" target="_blank">Legal</a> |
-                    <a href="https://www.birmingham.ac.uk/university/governance/policies-regs/information/index.aspx" target="_blank">Freedom of Information</a> |
-                    <a href="{% url 'general:cookies' %}">Cookies</a> |
-                    <a href="https://accessibility.bear.bham.ac.uk/statements-cal.html" target="_blank">Accessibility</a>
-                </p>	
-                <p>
-                    © University of Birmingham {% now "Y" %}
-                </p>
-            </div>
-        </footer>
+            </nav>
+
+            <!-- Main -->
+            <main id="main">
+                <div id="main-content">
+                    {% block main %}
+                    {% endblock %}
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="container-fluid">
+                <!-- Content -->
+                <div id="footer-content" class="container">
+                    <div id="footer-content-logos">
+                        <!-- University of Birmingham -->
+                        <a href="https://www.birmingham.ac.uk/" target="_blank"><img src="{% static 'images/logos/uob.png' %}" alt="University of Birmingham"></a>
+                    </div>
+                    <p>
+                        <strong>Rethinking Transitional Justice</strong> is a research project led by <a href="https://www.birmingham.ac.uk/staff/profiles/law/clark-janine-natalya">Professor Janine Natalya Clark</a> at the <a href="http://www.birmingham.ac.uk">University of Birmingham</a>
+                    </p>
+                    <p>
+                        This website has been developed by the <a href="http://www.birmingham.ac.uk/bear-software">Research Software Group</a> for the <a href="https://www.birmingham.ac.uk/university/colleges/artslaw/index.aspx">College of Arts and Law</a>
+                    </p>
+                    <p>
+                        <a href="https://www.birmingham.ac.uk/privacy/index.aspx" target="_blank">Privacy</a> |
+                        <a href="https://www.birmingham.ac.uk/legal/index.aspx" target="_blank">Legal</a> |
+                        <a href="https://www.birmingham.ac.uk/university/governance/policies-regs/information/index.aspx" target="_blank">Freedom of Information</a> |
+                        <a href="{% url 'general:cookies' %}">Cookies</a> |
+                        <a href="https://accessibility.bear.bham.ac.uk/statements-cal.html" target="_blank">Accessibility</a>
+                    </p>	
+                    <p>
+                        © University of Birmingham {% now "Y" %}
+                    </p>
+                </div>
+            </footer>
+
+        {% endblock %}
 
         <!-- Cookies popup message (must be at bottom of body) -->
         <script src="{% static 'js/cookiesmsg.js' %}"></script>

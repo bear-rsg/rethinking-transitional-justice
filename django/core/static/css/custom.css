@@ -41,11 +41,18 @@ h2 {
 }
 
 h3 {
-    padding: 2em 0 0.5em 0;
+    padding: 3em 0 0.5em 0;
     color: var(--color-secondary);
     font-weight: 600;
     text-align: center;
     font-size: 1.5em;
+}
+
+h4 {
+    padding: 1em 0 0.5em 0;
+    color: var(--color-secondary);
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
 .iframe-large {
@@ -283,11 +290,221 @@ main a {
     margin: 2em auto;
 }
 
-/* ---------- Sound  ---------- */
+/* ---------- Sound: Create  ---------- */
 
 #sound-create-submit {
     background: #FFF;
     color: var(--color-primary);
+}
+
+/* ---------- Sound: Lang  ---------- */
+
+.lang-eng,
+.lang-ukr {
+    display: none;
+}
+
+#lang {
+    display: block;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background: rgba(255, 255, 255, 0.13);
+    font-size: 2em;
+    border-radius: 0.5em;
+    padding: 0 0.3em;
+}
+
+#lang span {
+    padding: 0.1em 0.2em;
+    cursor: pointer;
+}
+
+/* ---------- Sound: Links  ---------- */
+
+.sound-backlink {
+    margin-top: 1em;
+    display: block;
+    width: fit-content;
+}
+
+.sound-primarylink {
+    font-weight: bold;
+    display: block;
+    margin: 2em auto 0 auto;
+    width: fit-content;
+    background: white;
+    color: var(--color-primary);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+    font-size: 1.1em;
+}
+
+.sound-primarylink:hover {
+    text-decoration: none;
+    background: var(--color-secondary);
+}
+
+.sound-primarylink i {
+    margin-left: 0.5em;
+}
+
+/* ---------- Sound: Welcome  ---------- */
+
+.sound-welcome-image {
+    width: 27em;
+    max-width: 90%;
+    display: block;
+    margin: 1em auto 0 auto;
+}
+
+/* ---------- Sound: List  ---------- */
+
+#sound-list-introduction {
+    margin: 2em auto;
+}
+
+#sound-list-search {
+    margin: 2em auto;
+}
+
+#sound-list-search label {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#sound-list-search-input {
+    width: calc(100% - 3em);
+    border-radius: 0.3em 0 0 0.3em;
+    display: inline-block;
+    border: 0;
+    padding: 0.69em;
+    vertical-align: middle;
+    font-size: 1.1em;
+}
+
+#sound-list-search-button {
+    width: 3em;
+    display: inline-block;
+    margin: 0;
+    border-radius: 0 0.3em 0.3em 0;
+    border: 0;
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 0.7em 0;
+    vertical-align: middle;
+    font-size: 1.1em;
+}
+
+.sound-list-items-item {
+    border: 0.1em solid rgba(255, 255, 255, 0.27);
+    background: rgba(255, 255, 255, 0.13);
+    margin: 4em auto;
+    padding: 2em 1.3em;
+    text-align: center;
+}
+
+.sound-list-items-item-photo {
+    display: block;
+    margin: 0 auto 2em auto;
+    width: 23em;
+    max-width: 100%;
+}
+
+.sound-list-items-item-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 0.5em;
+}
+
+.sound-list-items-item-details {
+    font-size: 1.1em;
+    margin: 0.5em auto;
+}
+
+/* ---------- Sound: Detail  ---------- */
+
+#sound-detail-audio {
+    text-align: center;
+    margin: 1em auto;
+}
+
+#sound-detail-photo-container {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+}
+
+#sound-detail-photo {
+    width: 100%;
+}
+
+.sound-detail-relatedsounds-item {
+    border: 0.1em solid rgba(255, 255, 255, 0.27);
+    background: rgba(255, 255, 255, 0.13);
+    margin: 2em auto;
+    padding: 1em;
+    text-align: center;
+}
+
+.sound-detail-relatedsounds-item h4 {
+    padding: 0;
+}
+
+#sound-detail-comments-prompt {
+    text-align: center;
+    margin: 1em auto;
+}
+
+#sound-detail-comments-new #id_comment {
+    width: 100%;
+    max-width: 50em;
+    margin: 0 auto;
+    display: block;
+    height: 10em;
+    font-size: 1rem;
+}
+
+#sound-detail-comments-new button {
+    width: fit-content;
+    margin: 0 auto;
+    display: block;
+    padding: 0.5em 1.3em;
+    color: var(--color-primary);
+    font-size: 1.1em;
+}
+
+#sound-detail-comments-new button:hover {
+    text-decoration: none;
+    background: var(--color-secondary);
+}
+
+#sound-detail-comments-new-disclaimer {
+    font-size: 0.85rem;
+    margin: 1em auto;
+    text-align: center;
+    width: 100%;
+    max-width: 60em;
+}
+
+#sound-detail-comments-existing {
+    margin-top: 3em;
+}
+
+.sound-detail-comments-existing-comment {
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 2em auto;
+    font-size: 0.9rem;
+}
+
+.sound-detail-comments-existing-comment-created {
+    font-weight: bold;
+    margin-bottom: 0.2em;
+    font-size: 0.9em;
+    text-align: right;
 }
 
 /* ---------- Footer ---------- */

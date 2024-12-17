@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+    {% include 'researchdata/language.html' %}
+
+    <div id="sound-list" class="container">
+        <!-- Back link -->
+        <a href="{% url 'researchdata:sound-welcome' %}" class="sound-backlink">
+            &lt;
+            <span class="lang-eng">View Soundscape Introduction</span>
+            <span class="lang-ukr">View Soundscape Introduction (Ukraine)</span>
+        </a>
+        <!-- Title -->
+        <h2>
+            <span class="lang-eng">Soundscape Exhibition</span>
+            <span class="lang-ukr">Soundscape Exhibition (Ukraine)</span>
+        </h2>
+        <!-- Search bar -->
+        <form method="GET" id="sound-list-search">
+            <div class="list-options-search">
+                <label for="sound-list-search-input">
+                    <span class="lang-eng">Search</span>
+                    <span class="lang-ukr">Search (Ukraine)</span>
+                </label>
+                <input type="text" name="search" title="search" id="sound-list-search-input"><!--
+                --><button type="submit" value="Search" title="search button" id="sound-list-search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        <!-- List items -->
+        <div id="sound-list-items">
+            {% for object in object_list %}
+                <div class="sound-list-items-item">
+                    {% if object.photo %}
+                        <img class="sound-list-items-item-photo" src="{{ object.photo.url }}" alt="photograph of location of sound">
+                    {% endif %}
+                    <div class="sound-list-items-item-title">
+                        <span class="lang-eng">{{ object.title_soundscape_exhibition | safe }}</span>
+                        <span class="lang-ukr">{{ object.title_soundscape_exhibition_ukrainian | safe }}</span>
+                    </div>
+                    <div class="sound-list-items-item-details">
+                        {% if object.description_preview %}
+                            <span class="lang-eng">{{ object.description_preview }}</span>
+                        {% endif %}
+                        {% if object.description_ukrainian_preview %}
+                            <span class="lang-ukr">{{ object.description_ukrainian_preview }}</span>
+                        {% endif %}
+                    </div>
+                    <a href="{% url 'researchdata:sound-detail' object.id %}" class="sound-primarylink">
+                        <span class="lang-eng">View Sound</span>
+                        <span class="lang-ukr">View Sound (Ukraine)</span>
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            {% empty %}
+                <div id="sound-list-items-empty">
+                    No sounds found. Please adjust your search criteria or check back soon!
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            // Set input field values using data in the URL
+            function setFieldValueFromUrl(formItemID, urlParameter, triggerChange=false){
+                var value = new URL(window.location.href).searchParams.get(urlParameter);
+                if (value) $('#' + formItemID).val(value);
+            }
+            setFieldValueFromUrl('sound-list-search-input', 'search');
+        });
+    </script>
+
+{% endblock %}
