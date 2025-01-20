@@ -35,12 +35,7 @@ class Sound(models.Model):
         help_text="Please upload your sound recording here<br>Будь ласка завантажте Ваш звукозапис сюди",
         verbose_name='Sound / Звук'
     )
-    photo = models.ImageField(
-        upload_to='researchdata/photos/',
-        blank=True,
-        null=True,
-        help_text="Please upload a photo related to this sound, to be shown on the public soundscape exhibition"
-    )
+
     location = models.CharField(
         max_length=255,
         blank=True,
@@ -58,6 +53,13 @@ class Sound(models.Model):
     location_soundscape_exhibition_ukrainian = models.CharField(
         max_length=255, blank=True, null=True,
         verbose_name='Location shown publicly in the soundscape exhibition (Ukrainian translation)'
+    )
+
+    photo = models.ImageField(
+        upload_to='researchdata/photos/',
+        blank=True,
+        null=True,
+        help_text="Please upload a photo related to this sound, to be shown on the public soundscape exhibition"
     )
 
     recording_date = models.DateField(
