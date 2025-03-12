@@ -13,26 +13,20 @@
             <span class="lang-ukr">Переглянути звукозаписи</span>
         </a>
         <!-- Title -->
-        <h2>
-            <span class="lang-eng">{{ object.title_soundscape_exhibition | safe }}</span>
-            <span class="lang-ukr">{{ object.title_soundscape_exhibition_ukrainian | safe }}</span>
-        </h2>
+        <h2 class="lang-eng">{{ object.title_soundscape_exhibition | safe }}</h2>
+        <h2 class="lang-ukr">{{ object.title_soundscape_exhibition_ukrainian | safe }}</h2>
         <!-- Audio -->
         <div id="sound-detail-audio">
-            <h3>
-                <span class="lang-eng">Listen to the sound</span>
-                <span class="lang-ukr">Прослухати звукозапис</span>
-            </h3>
+            <h3 class="lang-eng">Listen to the sound</h3>
+            <h3 class="lang-ukr">Прослухати звукозапис</h3>
             <audio controls>
                 <source src="{{ object.sound.url }}">
             </audio>
         </div>
         <!-- Photo -->
         {% if object.photo %}
-            <h3>
-                <span class="lang-eng">Photograph to illustrate the sound</span>
-                <span class="lang-ukr">Фотографія для ілюстрації звуку</span>
-            </h3>
+            <h3 class="lang-eng">Photograph to illustrate the sound</h3>
+            <h3 class="lang-ukr">Фотографія для ілюстрації звуку</h3>
             <a href="{{ object.photo.url }}" id="sound-detail-photo-container" target="_blank">
                 <img id="sound-detail-photo" src="{{ object.photo.url }}" alt="photograph of location of sound">
             </a>
@@ -40,10 +34,8 @@
         <!-- Description -->
         {% if object.description %}
             <div id="sound-detail-description">
-                <h3>
-                    <span class="lang-eng">Original description of this sound by the interviewee who recorded it</span>
-                    <span class="lang-ukr">Оригінальний опис звукозапису від респондента, що його записав</span>
-                </h3>
+                <h3 class="lang-eng">Original description of this sound by the interviewee who recorded it</h3>
+                <h3 class="lang-ukr">Оригінальний опис звукозапису від респондента, що його записав</h3>
                 <p class="lang-eng">{{ object.description | safe }}</p>
                 <p class="lang-ukr">{{ object.description_ukrainian | safe }}</p>
             </div>
@@ -51,10 +43,8 @@
         <!-- Interview Reflection -->
         {% if object.interviewee_reflection %}
             <div id="sound-detail-reflection">
-                <h3>
-                    <span class="lang-eng">Interviewee's reflections/comments on the recording</span>
-                    <span class="lang-ukr">Роздуми/коментарі респондента щодо звукозапису</span>
-                </h3>
+                <h3 class="lang-eng">Interviewee's reflections/comments on the recording</h3>
+                <h3 class="lang-ukr">Роздуми/коментарі респондента щодо звукозапису</h3>
                 <p class="lang-eng">{{ object.interviewee_reflection | safe }}</p>
                 <p class="lang-ukr">{{ object.interviewee_reflection_ukrainian | safe }}</p>
             </div>
@@ -62,10 +52,8 @@
         <!-- Related Sounds -->
         {% if object.related_sounds_list %}
             <div id="sound-detail-relatedsounds">
-                <h3>
-                    <span class="lang-eng">Related sounds</span>
-                    <span class="lang-ukr">Пов'язані звуки</span>
-                </h3>
+                <h3 class="lang-eng">Related sounds</h3>
+                <h3 class="lang-ukr">Пов'язані звуки</h3>
                 {% for related_sound in object.related_sounds_list %}
                     <div class="sound-detail-relatedsounds-item">
                         <h4>
@@ -77,7 +65,7 @@
                         </div>
                         <a href="{% url 'researchdata:sound-detail' related_sound.related_sound.id %}" class="sound-primarylink">
                             <span class="lang-eng">View Sound</span>
-                            <span class="lang-ukr">Переглянути звукозапис</span>
+                            <span class="lang-ukr">Прослухати звукозапис</span>
                             <i class="fas fa-play"></i>
                         </a>
                     </div>
@@ -86,10 +74,8 @@
         {% endif %}
         <!-- Comments -->
         <div id="sound-detail-comments">
-            <h3>
-                <span class="lang-eng">Comments</span>
-                <span class="lang-ukr">Коментарі</span>
-            </h3>
+            <h3 class="lang-eng">Your Comments</h3>
+            <h3 class="lang-ukr">Коментарі</h3>
             <div id="sound-detail-comments-prompt">
                 {% if object.prompt_for_public_comments %}
                     <span class="lang-eng">{{ object.prompt_for_public_comments }}</span>
@@ -104,7 +90,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="sound" value="{{ object.id }}">
                     <p>
-                        <textarea id="id_comment" title="comment" name="comment"></textarea>
+                        <textarea id="id_comment" title="write your comment" name="comment"></textarea>
                     </p>
                     <div id="sound-detail-comments-new-disclaimer">
                         <div class="lang-eng">

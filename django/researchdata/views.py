@@ -35,7 +35,13 @@ class SoundListView(LoginRequiredMixin, ListView):
     template_name = 'researchdata/sound-list.html'
 
     def get_queryset(self):
-        queryset = models.Sound.objects.filter(admin_approved=True)
+        # Only show approved sounds that belong to a category
+        queryset = models.Sound.objects.filter(
+            admin_approved=True,
+            category__isnull=False
+        )
+        # Performance improvement
+        queryset = queryset.select_related('category')
         # Search results
         search = self.request.GET.get('search', None)
         if search:
@@ -52,7 +58,7 @@ class SoundListView(LoginRequiredMixin, ListView):
                 Q(interviewee_reflection_ukrainian__icontains=search) |
                 Q(prompt_for_public_comments__icontains=search)
             )
-        return queryset.order_by('order_in_soundscape_exhibition', '-id')
+        return queryset.order_by('category', 'order_in_soundscape_exhibition', '-id')
 
 
 class SoundDetailView(LoginRequiredMixin, DetailView):
