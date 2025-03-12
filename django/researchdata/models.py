@@ -24,17 +24,46 @@ class SoundUploadCode(models.Model):
         return f'#{self.id} - {self.code}'
 
 
+class SoundCategory(models.Model):
+    """
+    A category that sounds can belong to
+    """
+
+    name = models.CharField(max_length=255, unique=True)
+    name_ukrainian = models.CharField(max_length=255, unique=True)
+    order = models.FloatField(
+        default=0,
+        help_text="Sounds will be shown in the public soundscape exhibition in order of this value from lowest to highest"
+    )
+    admin_notes = models.TextField(blank=True, null=True)
+
+    @property
+    def sounds_count(self):
+        return self.sounds.count()
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['order']
+        verbose_name_plural = 'sound categories'
+
+
 class Sound(models.Model):
     """
     A Sound that a member of public shares with the project
     """
 
-    sound_upload_code = models.ForeignKey(SoundUploadCode, related_name='sounds', on_delete=models.PROTECT, blank=True, null=True)
+    related_name = 'sounds'
+
+    sound_upload_code = models.ForeignKey(SoundUploadCode, related_name=related_name, on_delete=models.PROTECT, blank=True, null=True)
     sound = models.FileField(
         upload_to='researchdata/sounds/',
         help_text="Please upload your sound recording here<br>Будь ласка завантажте Ваш звукозапис сюди",
         verbose_name='Sound / Звук'
     )
+
+    category = models.ForeignKey(SoundCategory, related_name=related_name, on_delete=models.PROTECT, blank=True, null=True)
 
     location = models.CharField(
         max_length=255,

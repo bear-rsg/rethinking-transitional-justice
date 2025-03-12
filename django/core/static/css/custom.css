@@ -45,7 +45,7 @@ h3 {
     color: var(--color-secondary);
     font-weight: 600;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.7em;
 }
 
 h4 {
@@ -53,6 +53,14 @@ h4 {
     color: var(--color-secondary);
     font-weight: 600;
     font-size: 1.3em;
+}
+
+h2 a,
+h3 a,
+h4 a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: inherit;
 }
 
 .iframe-large {
@@ -274,6 +282,7 @@ main a {
     margin: 0.5em 0 3em 0;
     text-align: center;
     opacity: 0.8;
+    font-size: 0.9em;
 }
 
 /* ---------- Team ---------- */
@@ -351,8 +360,12 @@ main a {
 
 /* ---------- Sound: Welcome  ---------- */
 
+#sound-welcome {
+    padding-bottom: 5em;
+}
+
 .sound-welcome-image {
-    width: 27em;
+    width: 20em;
     max-width: 90%;
     display: block;
     margin: 1em auto 0 auto;

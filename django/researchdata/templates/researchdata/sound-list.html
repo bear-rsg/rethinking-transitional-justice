@@ -33,6 +33,14 @@
         <!-- List items -->
         <div id="sound-list-items">
             {% for object in object_list %}
+
+                {% ifchanged object.category %}
+                    {% if object.category %}
+                        <h3 class="lang-eng">{{ object.category.name }}</h3>
+                        <h3 class="lang-ukr">{{ object.category.name_ukrainian }}</h3>
+                    {% endif %}
+                {% endifchanged %}
+
                 <div class="sound-list-items-item">
                     {% if object.photo %}
                         <img class="sound-list-items-item-photo" src="{{ object.photo.url }}" alt="photograph of location of sound">
@@ -51,7 +59,7 @@
                     </div>
                     <a href="{% url 'researchdata:sound-detail' object.id %}" class="sound-primarylink">
                         <span class="lang-eng">View Sound</span>
-                        <span class="lang-ukr">Переглянути звукозапис</span>
+                        <span class="lang-ukr">Прослухати звукозапис</span>
                         <i class="fas fa-play"></i>
                     </a>
                 </div>
