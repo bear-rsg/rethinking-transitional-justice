@@ -1,5 +1,4 @@
 from django.views.generic import (ListView, DetailView, CreateView, TemplateView)
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse_lazy
 from . import forms, models
@@ -28,7 +27,7 @@ class SoundWelcomeTemplateView(TemplateView):
     template_name = 'researchdata/sound-welcome.html'
 
 
-class SoundListView(LoginRequiredMixin, ListView):
+class SoundListView(ListView):
     """
     Class-based view to show the Sound list template
     """
@@ -61,7 +60,7 @@ class SoundListView(LoginRequiredMixin, ListView):
         return queryset.order_by('category', 'order_in_soundscape_exhibition', '-id')
 
 
-class SoundDetailView(LoginRequiredMixin, DetailView):
+class SoundDetailView(DetailView):
     """
     Class-based view to show the Sound detail template
     """
@@ -69,7 +68,7 @@ class SoundDetailView(LoginRequiredMixin, DetailView):
     queryset = models.Sound.objects.filter(admin_approved=True)
 
 
-class SoundscapeExhibitionCommentCreateView(LoginRequiredMixin, CreateView):
+class SoundscapeExhibitionCommentCreateView(CreateView):
     """
     Class-based view to create a SoundscapeExhibitionComment
     """
