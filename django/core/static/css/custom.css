@@ -329,6 +329,10 @@ main a {
     cursor: pointer;
 }
 
+#lang span img {
+    width: 1em;
+}
+
 /* ---------- Sound: Links  ---------- */
 
 .sound-backlink {
