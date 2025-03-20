@@ -1,6 +1,12 @@
+{% load static %}
+
 <div id="lang">
-    <span data-lang="eng">🇬🇧</span>
-    <span data-lang="ukr">🇺🇦</span>
+    <span data-lang="eng">
+        <img src="{% static 'images/flags/britain.svg' %}" alt="flag for English">
+    </span>
+    <span data-lang="ukr">
+        <img src="{% static 'images/flags/ukraine.svg' %}" alt="flag for Ukrainian">
+    </span>
 </div>
 
 <script>
