@@ -26,6 +26,11 @@ class SoundWelcomeTemplateView(TemplateView):
     """
     template_name = 'researchdata/sound-welcome.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['count_sounds'] = models.Sound.objects.filter(admin_approved=True, category__isnull=False).count()
+        return context
+
 
 class SoundListView(ListView):
     """
