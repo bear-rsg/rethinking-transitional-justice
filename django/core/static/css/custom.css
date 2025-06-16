@@ -368,6 +368,11 @@ main a {
     padding-bottom: 5em;
 }
 
+#sound-welcome-audioplayer {
+    display: block;
+    margin: 3em auto;
+}
+
 .sound-welcome-image {
     width: 25em;
     max-width: 90%;
