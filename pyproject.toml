@@ -1,0 +1,9 @@
+[project]
+name = "rethinking-transitional-justice"
+version = "1.0.0"
+requires-python = ">=3.9"
+description = "A Django project for the Rethinking Transitional Justice research project."
+authors = [{name = "Mike Allaway", email = "m.j.allaway@bham.ac.uk"}]
+dependencies = [
+	"Django~=4.2.0",
+]
